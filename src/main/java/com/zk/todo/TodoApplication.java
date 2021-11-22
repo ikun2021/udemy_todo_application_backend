@@ -8,7 +8,8 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 
 @SpringBootApplication
-public class TodoApplication implements WebMvcConfigurer {//用webmvcconfigurer来使拦截器生效
+//使用WebMvcConfigure来添加拦截器
+public class TodoApplication implements WebMvcConfigurer {
 
     public static void main(String[] args) {
         SpringApplication.run(TodoApplication.class, args);
@@ -16,7 +17,6 @@ public class TodoApplication implements WebMvcConfigurer {//用webmvcconfigurer�
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        //使拦截器生效
          registry.addInterceptor(new JwtInterceptor());
     }
 
